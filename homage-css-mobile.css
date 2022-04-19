@@ -1,0 +1,312 @@
+
+/* 
+
+Original URL for comparisons - https://daily.bandcamp.com/lists/ohio-hardcore-list
+
+IT'S A BUG HUNT
+HTML
+1. line 85 - cannot put header inside seciton at line 114
+    this causes the left & right margin on the section to prevent picture from being full width of viewport.
+
+CSS
+a. line 231 - why doesn't the translate work to move the dots upwards so they sit just below x-height
+b. why doesn't the transform work on the play icon line 106 to 112?
+
+*/
+
+@font-face {
+    font-family:"Agipo";
+    src: url(assets/fonts/agipo.ttf);
+    font-weight: normal;
+}
+
+
+:root {
+    --bcblue:#1da0c3;
+    --bcdarkblack:#1a1715;
+    --bcgrey:#909090;
+    --bcfullblack:#000;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: "Agipo", Arial, Helvetica, sans-serif;
+    font-weight:normal;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER START */
+header {
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+header a {
+    color: var(--bcblue);
+    font-size: 0.875rem;
+}
+
+header p {
+    color: var(--bcgrey);
+    font-size: 0.875rem;
+    margin: 18px 0 32px;
+}
+
+header nav h1 {
+    background-image: url(/assets/logos/bandcamp-logotype-color-512.png);
+    background-repeat: no-repeat;
+    background-size: 100px;
+
+    padding-top: 18px;
+    height:0;
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+.albumoftheday {
+    display: none;
+}
+
+.bandcampdaily {
+    display:none;
+}
+
+.nav-button {
+    width: 25px;
+}
+
+.user-avatar {
+    width: 29px;
+    height: 29px;
+    border-radius: 50%;
+}
+
+.play-icon {
+    display: flex;
+    background: url(assets/icons/play.png);
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: 65px;
+    overflow: hidden;
+    height: 0;
+    padding-top: 60px;
+    border: solid black 1px;
+    border-radius: 100px;
+    width:65px;
+    margin: -38px auto 0;
+    transition: transform 300ms;
+}
+
+.play-icon a:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin:0;
+    padding:0;
+}
+
+main header h1 {
+    font-size: 1.7rem;
+    letter-spacing: -1px;
+    margin-top: 12px;
+    line-height: 1.25em;
+    padding: 0px 22px;
+}
+
+main header p {
+    margin-bottom: 42px;
+}
+
+h4 {
+    color: var(--bcgrey);
+    margin-top: 18px;
+}
+/* HEADER END */
+
+/* ARTICLE START */
+section {
+    padding: 0px 22px 0px 22px;
+}
+
+section p {
+    font-size: 1.0625em;
+    line-height:1.66em;
+    padding-bottom:24px;
+}
+/* ARTICLE END */
+
+/* LINKS START */
+a {
+    color: var(--bcblue);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h4 a {
+    color: var(--bcgrey);
+    letter-spacing: 0.5px;
+}
+
+.search-icon {
+    stroke:var(--bcgrey);
+    stroke-width: 0.3px;
+}
+
+.navigation-two a svg:hover {
+    stroke:var(--bcfullblack);
+    stroke-width: 0.3px;
+}
+
+footer a {
+    color:#fff;
+    font-size: 0.8125rem
+}
+/* LINKS END */
+
+
+.navigation-one {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px 15px;
+    /* padding: 20px 22px 20px 22px; */
+    background-color: #fff;
+}
+
+.navigation-one a {
+    margin-left:15px;
+    min-width: 20px;
+    max-width: 20px;
+}
+
+.navigation-one ul {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+ul {
+    display:flex;
+}
+
+ul li {
+    list-style: none;
+}
+
+.lightning-button {
+    display: none;
+}
+
+.navigation-two {
+    border-top: solid 1px rgba(144, 144, 144, 0.4);
+    color: var(--bcgrey);
+    padding: 10px 15px 10px 15px;
+    /* background-color: pink; */
+}
+
+.navigation-two-links-middle {
+    display:flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+}
+
+.navigation-two-links-middle a::after,
+.navigation-two-links-middle span::after {
+    content: ".";
+    padding: 0 7px;
+    transform: translateY(-4px);
+}
+
+.navigation-two-links-middle :last-child::after {
+    display: none;
+}
+
+.navigation-two-links-edges {
+    /* background-color: lightblue; */
+    position: relative;
+    display:flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navigation-two a {
+    color: var(--bcgrey);
+    font-size:0.8125rem;
+}
+
+.navigation-two a:hover {
+    color: var(--bcblue);
+}
+
+
+
+
+
+/* IMAGES START */
+header img {
+    width: 100%;
+}
+
+figure {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+figure figcaption{
+    margin: 0px;
+    font-size: .75em;
+    color: var(--bcgrey);
+    text-align: right;
+    padding-bottom: 12px;
+
+}
+
+/* IMAGES END */
+
+/* FOOTER STARTS */
+
+footer {
+    background-color: var(--bcgrey);
+    color:#fff;
+    padding-left:22px;
+    padding-top: 20px;
+}
+
+.footer-links {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-bottom: 20px;
+}
+
+footer nav h1 {
+    background-image: url(/assets/logos/bandcamp-logotype-light-512.png);
+    background-repeat: no-repeat;
+    background-size: 100px;
+
+    padding-top: 30px;
+    height:0;
+    overflow: hidden;
+}
+
+/* FOOTER ENDS */
